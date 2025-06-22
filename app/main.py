@@ -6,7 +6,7 @@ import asyncio
 from sqlalchemy.ext.asyncio import create_async_engine
 from contextlib import asynccontextmanager
 
-DATABASE_URL = "postgresql+asyncpg://postgres:ekcl@db:5432/ecommerce_db"
+DATABASE_URL = "postgresql+asyncpg://postgresql://ecommerce_db:stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce@dpg-d1bu41p5pdvs73e8gbp0-a/ecommerce_db_wmyj"
 engine = create_async_engine(DATABASE_URL, echo=True)
 
 @asynccontextmanager
