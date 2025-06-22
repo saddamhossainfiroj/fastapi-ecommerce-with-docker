@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .database import engine, Base
-from .routers import products
+from .routers import products, common, users
 import asyncio
 from sqlalchemy.ext.asyncio import create_async_engine
 from contextlib import asynccontextmanager
@@ -44,4 +44,6 @@ app.add_middleware(
 )
 
 # Routers
+app.include_router(users.router)
 app.include_router(products.router)
+app.include_router(common.router)

@@ -1,0 +1,7 @@
+Hostname = dpg-d1bu41p5pdvs73e8gbp0-a
+Database = ecommerce_db_wmyj
+user name = ecommerce_db
+password = stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce
+internal db url = postgresql://ecommerce_db:stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce@dpg-d1bu41p5pdvs73e8gbp0-a/ecommerce_db_wmyj
+external db url = postgresql://ecommerce_db:stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce@dpg-d1bu41p5pdvs73e8gbp0-a.oregon-postgres.render.com/ecommerce_db_wmyj
+psql command = PGPASSWORD=stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce psql -h dpg-d1bu41p5pdvs73e8gbp0-a.oregon-postgres.render.com -U ecommerce_db ecommerce_db_wmyj
