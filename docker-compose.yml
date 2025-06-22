@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:ekcl@db:5432/ecommerce_db
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'ekcl'
+      POSTGRES_DB: 'ecommerce_db'
+      
+      # Performance tuning
+      POSTGRES_SHARED_BUFFERS: 1GB
+      POSTGRES_EFFECTIVE_CACHE_SIZE: 3GB
+      POSTGRES_WORK_MEM: 128MB
+      
+      # Connections
+      POSTGRES_MAX_CONNECTIONS: 100
+      
+      # Logging
+      POSTGRES_LOG_STATEMENT: all  # or 'ddl', 'mod', 'none'
+      POSTGRES_LOG_MIN_DURATION_STATEMENT: 1000  # ms
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+      
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ecommerce_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:ekcl@db:5432/ecommerce_db
+    ports:
+      - "8000:8000"
+
+volumes:
+  postgres_data:
