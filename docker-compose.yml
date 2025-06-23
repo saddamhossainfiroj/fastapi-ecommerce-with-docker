@@ -5,7 +5,7 @@ services:
     image: postgres:15
     container_name: postgres_db
     environment:
-      DATABASE_URL: postgresql://ecommerce_db:stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce@dpg-d1bu41p5pdvs73e8gbp0-a/ecommerce_db_wmyj
+      DATABASE_URL: postgresql://ecommerce_db:stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce@dpg-d1bu41p5pdvs73e8gbp0-a.oregon-postgres.render.com/ecommerce_db_wmyj
       POSTGRES_USER: 'ecommerce_db'
       POSTGRES_PASSWORD: 'stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce'
       POSTGRES_DB: 'ecommerce_db_wmyj'
@@ -40,7 +40,7 @@ services:
         condition: service_healthy
     restart: always
     environment:
-      DATABASE_URL: postgresql://ecommerce_db:stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce@dpg-d1bu41p5pdvs73e8gbp0-a/ecommerce_db_wmyj
+      DATABASE_URL: postgresql://ecommerce_db:stmCyGjsnqbMSAOTFwpQnIj2xd0nf8ce@dpg-d1bu41p5pdvs73e8gbp0-a.oregon-postgres.render.com/ecommerce_db_wmyj
     ports:
       - "8000:8000"
 
